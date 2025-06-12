@@ -1,4 +1,4 @@
-﻿@model List<NTierTodoApp.Models.TaskItem>
+@model List<NTierTodoApp.Models.TaskItem>
 
 <!DOCTYPE html>
 <html>
@@ -25,7 +25,11 @@
                     </form>
                 }
 
-                <!-- TODO: إضافة زر حذف المهمة -->
+                <!-- زر حذف المهمة -->
+                <form method="post" asp-action="DeleteTask" style="display:inline; margin-left:10px;">
+                    <input type="hidden" name="id" value="@task.Id" />
+                    <button type="submit" onclick="return confirm('هل أنت متأكد من حذف هذه المهمة؟');">حذف</button>
+                </form>
             </li>
         }
     </ul>
